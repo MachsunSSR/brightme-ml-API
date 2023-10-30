@@ -1,0 +1,9 @@
+POST http://127.0.0.1:5000/recomendation
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="file.jpg"
+Content-Type: image/jpeg
+
+/download.jpeg
+----WebKitFormBoundary7MA4YWxkTrZu0gW--
