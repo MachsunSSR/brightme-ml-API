@@ -184,10 +184,10 @@ def predict1():
 #         )
 
 if __name__ == "__main__":
-    
-    application.debug = True 
-    http_server = WSGIServer(('', 5000), application)
-    http_server.serve_forever()
+    application.run(debug=True, host = '127.0.0.1', port = 5000)
+    # application.debug = True 
+    # http_server = WSGIServer(('', 5000), application)
+    # http_server.serve_forever()
 
 
     
