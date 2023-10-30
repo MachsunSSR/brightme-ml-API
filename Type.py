@@ -1,6 +1,6 @@
 import os
 from keras.models import load_model
-from flask import Flask, flash, request, redirect, render_template, jsonify
+from flask import json, Flask, flash, request, redirect, render_template, jsonify
 import tensorflow as tf
 import keras
 import numpy as np
@@ -35,7 +35,10 @@ model2 = tf.keras.models.load_model(
 
 @application.route('/recomendation', methods = ['GET','POST'])
 def predict1():
-    print(request.files)
+    # print(request.files)
+    # data = json.loads(request.data)
+    print(request.headers)
+
     if 'file' not in request.files:
         respond = jsonify({'message': 'No image'})
         respond.status_code = 400
