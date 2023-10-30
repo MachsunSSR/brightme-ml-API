@@ -105,7 +105,7 @@ def predict1():
         )
 
 @application.route('/recomendation', methods = ['GET'])
-def predict1():
+def predict2():
     if 'file' not in request.files:
         respond = jsonify({'message': 'No image'})
         respond.status_code = 400
