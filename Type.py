@@ -37,7 +37,10 @@ model2 = tf.keras.models.load_model(
 def predict1():
     # print(request.files)
     # data = json.loads(request.data)
-    print(request.headers)
+    print(request.files)
+    print(request.form)
+    # print(request.values)
+    # print(request.get_json(force=True))
 
     if 'file' not in request.files:
         respond = jsonify({'message': 'No image'})
