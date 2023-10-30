@@ -42,27 +42,28 @@ def predict1():
     # print(request.values)
     # print(request.get_json(force=True))
 
-    if 'file' not in request.files:
-        respond = jsonify({'message': 'No image'})
-        respond.status_code = 400
-        return respond
-    files = request.files.getlist('file')
-    filename = "download.jpg"
+    # if 'file' not in request.files:
+    #     respond = jsonify({'message': 'No image'})
+    #     respond.status_code = 400
+    #     return respond
+    files = {'filename':'download.jpg'}
+    if 'file' in request.files:
+        files = request.files.getlist('file')
     errors = {}
-    success = False
-    for file in files:
-        if file and allowed_ex(file.filename):
-            file.save(os.path.join(application.config['UPLOAD_FOLDER'], file.filename))
-            success = True
-        else:
-            errors["message"] = 'The type of {} is wrong'.format(file.filename)
-    if not success:
-        resp = jsonify(errors)
-        resp.status_code = 400
-        return resp
+    # success = False
+    # for file in files:
+    #     if file and allowed_ex(file.filename):
+    #         file.save(os.path.join(application.config['UPLOAD_FOLDER'], file.filename))
+    #         success = True
+    #     else:
+    #         errors["message"] = 'The type of {} is wrong'.format(file.filename)
+    # if not success:
+    #     resp = jsonify(errors)
+    #     resp.status_code = 400
+    #     return resp
     
     
-    foto = os.path.join(application.config['UPLOAD_FOLDER'], file.filename)
+    foto = os.path.join(application.config['UPLOAD_FOLDER'], 'download.jpeg')
     img = keras.utils.load_img(foto, target_size=(224, 224))
     x = tf.keras.utils.img_to_array(img)
     x /= 255
